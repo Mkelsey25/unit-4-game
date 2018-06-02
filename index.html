@@ -7,6 +7,7 @@
     <body>
         <h1> Crystal Collector Game</h1>
         <p>Number to Guess: <span id="number-to-guess"></span></p>
+        <p>Your Score: <span id="score"></span></p>
         <p id="winsID"></p>
         <p id="lossesID"></p>
         <div id="crystals">
@@ -26,21 +27,26 @@
             var imageCrystal = $("<img>");
             imageCrystal.addClass("crystal-image");
             imageCrystal.attr("src", "assets/images/crystal-a.png");
-            imageCrystal.attr("data-crystalvalue", numberOptions[i]);
+            imageCrystal.attr("data-crystalvalue", numberOptions[Math.round(Math.random())]);
             crystals.append(imageCrystal);
         }
         crystals.on("click", ".crystal-image", function() {
             var crystalValue = ($(this).attr("data-crystalvalue"));
             crystalValue = parseInt(crystalValue);
             counter += crystalValue;
-            alert(counter);
+            $("#score").text(counter);
             });
 
             if(counter === targetnumber) {
                 wins++;
+            targetnumber = [Math.floor(Math.random() * 120) + 18];
+            imageCrystal.attr("data-crystalvalue", numberOptions[Math.round(Math.random())]);
+
             }
             else if(counter >= targetnumber) {
                 losses++;
+                targetnumber = [Math.floor(Math.random() * 120) + 18];
+                imageCrystal.attr("data-crystalvalue", numberOptions[Math.round(Math.random())]);
             }
         </script>
     </body>
