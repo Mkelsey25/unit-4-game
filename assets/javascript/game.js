@@ -5,8 +5,7 @@
     var wins = 0;
     var losses = 0;
 
-
-
+    function createCrystals() {
     for(var i = 0; i < 4; i++) {
         var imageCrystal = $("<img>");
         imageCrystal.addClass("crystal-image");
@@ -14,6 +13,8 @@
         imageCrystal.attr("data-crystalvalue", [Math.floor(Math.random() * 11) + 1]);
         crystals.append(imageCrystal);
     }
+    }
+    createCrystals();
         
     crystals.on("click", ".crystal-image", function() {
         var crystalValue = ($(this).attr("data-crystalvalue"));
@@ -28,14 +29,8 @@
             console.log(targetnumber);
             $("#number-to-guess").text(targetnumber);
             $('#crystals').empty();
-            for(var i = 0; i < 4; i++) {
-                var imageCrystal = $("<img>");
-                imageCrystal.addClass("crystal-image");
-                imageCrystal.attr("src", "assets/images/crystal-a.png");
-                imageCrystal.attr("data-crystalvalue", [Math.floor(Math.random() * 11) + 1]);
-                crystals.append(imageCrystal);}
-            
-        }
+            createCrystals();  
+            }
         else if(counter > targetnumber) {
             losses++;
             $("#lossesID").text(losses);
@@ -44,14 +39,7 @@
             console.log(targetnumber);
             $("#number-to-guess").text(targetnumber);
             $('#crystals').empty();
-            for(var i = 0; i < 4; i++) {
-                var imageCrystal = $("<img>");
-                imageCrystal.addClass("crystal-image");
-                imageCrystal.attr("src", "assets/images/crystal-a.png");
-                imageCrystal.attr("data-crystalvalue", [Math.floor(Math.random() * 11) + 1]);
-                crystals.append(imageCrystal);
+            createCrystals();
             }
-
-        }
-        });
+            });
 
