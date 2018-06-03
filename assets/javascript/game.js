@@ -27,6 +27,14 @@
             targetnumber = [Math.floor(Math.random() * 102) + 18]; 
             console.log(targetnumber);
             $("#number-to-guess").text(targetnumber);
+            $('#crystals').empty();
+            for(var i = 0; i < 4; i++) {
+                var imageCrystal = $("<img>");
+                imageCrystal.addClass("crystal-image");
+                imageCrystal.attr("src", "assets/images/crystal-a.png");
+                imageCrystal.attr("data-crystalvalue", [Math.floor(Math.random() * 11) + 1]);
+                crystals.append(imageCrystal);}
+            
         }
         else if(counter > targetnumber) {
             losses++;
@@ -35,6 +43,15 @@
             targetnumber = [Math.floor(Math.random() * 102) + 18]; 
             console.log(targetnumber);
             $("#number-to-guess").text(targetnumber);
+            $('#crystals').empty();
+            for(var i = 0; i < 4; i++) {
+                var imageCrystal = $("<img>");
+                imageCrystal.addClass("crystal-image");
+                imageCrystal.attr("src", "assets/images/crystal-a.png");
+                imageCrystal.attr("data-crystalvalue", [Math.floor(Math.random() * 11) + 1]);
+                crystals.append(imageCrystal);
+            }
+
         }
         });
 
