@@ -4,16 +4,16 @@
     var counter = 0;
     var wins = 0;
     var losses = 0;
-
+    var images = ["assets/images/crystal-a.png", "assets/images/crystal-b.png", "assets/images/crystal-c.png", "assets/images/crystal-d.png"]
     function createCrystals() {
     for(var i = 0; i < 4; i++) {
         var imageCrystal = $("<img>");
         imageCrystal.addClass("crystal-image");
-        imageCrystal.attr("src", "assets/images/crystal-a.png");
+        imageCrystal.attr("src", images[i]);
         imageCrystal.attr("data-crystalvalue", [Math.floor(Math.random() * 11) + 1]);
         crystals.append(imageCrystal);
-    }
-    }
+        }
+        }
     createCrystals();
         
     crystals.on("click", ".crystal-image", function() {
